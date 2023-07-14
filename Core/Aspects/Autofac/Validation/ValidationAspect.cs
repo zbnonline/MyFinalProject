@@ -24,9 +24,9 @@ namespace Core.Aspects.Autofac.Validation
         }
         protected override void OnBefore(IInvocation invocation)
         {
-            var validator = (IValidator)Activator.CreateInstance(_validatorType);
-            var entityType = _validatorType.BaseType.GetGenericArguments()[0];
-            var entities = invocation.Arguments.Where(t => t.GetType() == entityType);
+            var validator = (IValidator)Activator.CreateInstance(_validatorType); // Kullanılacak validator çalışma anında newlenir
+            var entityType = _validatorType.BaseType.GetGenericArguments()[0]; // Validator ün tipi belirlenir 
+            var entities = invocation.Arguments.Where(t => t.GetType() == entityType); // Method seçilir (invocation) argümanlarında validatörün tipinde bir argüman varsa onlar validate edilir.
             foreach (var entity in entities)
             {
                 ValidationTool.Validate(validator, entity);
