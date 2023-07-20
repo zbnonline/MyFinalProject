@@ -13,20 +13,20 @@ namespace ConsoleUI
 
             //CategoryTest();
 
-            ProductManager productManager = new ProductManager(new EfProductDal(), new CategoryManager(new EfCategoryDal()));
+            //ProductManager productManager = new ProductManager(new EfProductDal(), new CategoryManager(new EfCategoryDal()));
 
-            var result = productManager.GetProductDetails();
+            //var result = productManager.GetProductDetails();
 
-            if (result.Success == true)
-            {
-                foreach (var product in result.Data)
-                {
-                    Console.WriteLine(product.ProductName);
-                }
-            } else
-            {
-                Console.WriteLine(result.Message);
-            }
+            //if (result.Success == true)
+            //{
+            //    foreach (var product in result.Data)
+            //    {
+            //        Console.WriteLine(product.ProductName);
+            //    }
+            //} else
+            //{
+            //    Console.WriteLine(result.Message);
+            //}
         }
 
         private static void CategoryTest()
